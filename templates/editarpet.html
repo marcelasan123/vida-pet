@@ -1,0 +1,41 @@
+
+   <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Pet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Editar Pet</h2>
+        <form method="POST">
+            <label for="nome">Nome do Pet:</label>
+            <input type="text" id="nome" name="nome" value="{{ pet.nome }}" required>
+
+            <label for="raca">Raça:</label>
+            <input type="text" id="raca" name="raca" value="{{ pet.raca }}" required>
+
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" step="0.1" value="{{ pet.peso }}" required>
+
+            <label for="genero">Gênero:</label>
+            <select id="genero" name="genero" required>
+                <option value="Macho" {% if pet.genero == 'Macho' %}selected{% endif %}>Macho</option>
+                <option value="Fêmea" {% if pet.genero == 'Fêmea' %}selected{% endif %}>Fêmea</option>
+            </select>
+
+            <label for="tutor">Nome do Tutor:</label>
+            <input type="text" id="tutor" name="tutor" value="{{ pet.tutor }}" required>
+
+            <label for="telefone">Telefone do Tutor:</label>
+            <input type="tel" id="telefone" name="telefone" value="{{ pet.telefone }}" required>
+
+            <button type="submit">Salvar</button>
+        </form>
+        <a href="{{ url_for('dados_pets') }}" class="voltar">← Voltar</a>
+    </div>
+</body>
+</html>
+
+

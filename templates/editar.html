@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Editar Consulta - Vida Pet</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}" />
+</head>
+<body>
+
+<header>
+  <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Vida Pet" />
+  <nav>
+    <a href="{{ url_for('index') }}">Início</a>
+    <a href="{{ url_for('dadosconsultas') }}">Voltar para Consultas</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Editar Consulta</h2>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form action="{{ url_for('editarconsulta', id=consulta.id) }}" method="POST">
+    <label for="data">Data:</label><br />
+    <input type="date" id="data" name="data" value="{{ consulta.data }}" required /><br />
+
+    <label for="hora">Hora:</label><br />
+    <input type="time" id="hora" name="hora" value="{{ consulta.hora }}" required /><br />
+
+    <label for="pet">Nome do Pet:</label><br />
+    <input type="text" id="pet" name="pet" value="{{ consulta.pet }}" required /><br />
+
+    <label for="tutor">Nome do Tutor:</label><br />
+    <input type="text" id="tutor" name="tutor" value="{{ consulta.tutor }}" required /><br />
+
+    <label for="veterinario">Veterinário:</label><br />
+    <input type="text" id="veterinario" name="veterinario" value="{{ consulta.veterinario }}" /><br /><br />
+
+    <button type="submit" class="btn_submit">Salvar Alterações</button>
+  </form>
+</div>
+
+<footer>
+  <p>© 2025 Clínica Vida Pet</p>
+</footer>
+
+</body>
+</html>

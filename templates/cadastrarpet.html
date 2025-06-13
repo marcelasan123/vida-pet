@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadastrar Pet - Vida Pet</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}" />
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='img/logo (1).png') }}" alt="Logo Vida Pet" height="50" />
+    <nav>
+      <a href="{{ url_for('index') }}#inicio">Início</a>
+      <a href="{{ url_for('agendamento') }}">Agendamento</a>
+      <a href="{{ url_for('calcularmedicamento') }}">calculadora de medicamento</a>
+      <a href="{{ url_for('calcularsoro') }}">calculadora de soro</a>
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('cadastrartutor') }}">cadastrar tutor</a>
+    </nav>
+  </header>
+<header>
+  <h1>Cadastrar Pet</h1>
+</header>
+
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastrar Pet</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}" />
+</head>
+<body>
+  <header>
+    Cadastrar Pet
+  </header>
+
+    <form>
+      <label for="nomePet">Nome do Pet:</label>
+      <input type="text" id="nomePet" name="nomePet" />
+
+      <label for="raca">Raça:</label>
+      <input type="text" id="raca" name="raca" />
+
+      <label for="peso">Peso (kg):</label>
+      <input type="number" id="peso" name="peso" />
+
+      <label for="genero">Gênero:</label>
+      <select id="genero" name="genero">
+        <option value="macho">Macho</option>
+        <option value="femea">Fêmea</option>
+      </select>
+
+      <label for="nomeTutor">Nome do Tutor:</label>
+      <input type="text" id="nomeTutor" name="nomeTutor" />
+
+      <label for="telefoneTutor">Telefone do Tutor:</label>
+      <input type="tel" id="telefoneTutor" name="telefoneTutor" />
+
+      <div class="full-width">
+        <button class="submit-button" type="submit">Cadastrar</button>
+      </div>
+    </form>
+
+    <div class="link">
+      <a href="#">Ver Pets cadastrados</a>
+  </div>
+
+
+
+
+  <footer
+        class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <img src="{{ url_for('static', filename='img/cap.png') }}" alt="Logo CAP" height="50" />
+      </div>
+      <div class="footer-center">
+        <img src="{{ url_for('static', filename='img/logo (1).png') }}" alt="Logo Vida Pet" height="40" />
+        <div class="footer-social">
+          <img src="{{ url_for('static', filename='img/whatsasp.png') }}" alt="WhatsApp" />
+          <img src="{{ url_for('static', filename='img/Instagram.png') }}" alt="Instagram" />
+          <img src="{{ url_for('static', filename='img/facebook-rodapé.png') }}" alt="Facebook" />
+        </div>
+        <p>Copyright 2025 © Hospital Vet Popular - Todos os direitos reservados</p>
+      </div>
+      <div class="footer-right">
+        <img src="{{ url_for('static', filename='img/Cachorro-Home-Rodapé.png') }}" alt="Cachorro feliz" height="100" />
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

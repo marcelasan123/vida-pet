@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadastrar Tutor - Vida Pet</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}" />
+</head>
+<body>
+
+
+<header>
+    <img src="{{ url_for('static', filename='img/logo (1).png') }}" alt="Logo Vida Pet" height="50" />
+    <nav>
+      <a href="{{ url_for('index') }}#inicio">Início</a>
+      <a href="{{ url_for('agendamento') }}">Agendamento</a>
+      <a href="{{ url_for('calcularmedicamento') }}">calculadora de medicamento</a>
+      <a href="{{ url_for('calcularsoro') }}">calculadora de soro</a>
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('cadastrartutor') }}">cadastrar tutor</a>
+    </nav>
+  </header>
+
+
+<main class="login-container">
+  <div class="login-box">
+    <h1>Cadastrar Tutor</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="erro-login">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('cadastrartutor') }}">
+      <label for="nomeTutor">Nome:</label>
+      <input type="text" name="nomeTutor" id="nomeTutor" required>
+
+      <label for="telefoneTutor">Telefone:</label>
+      <input type="text" name="telefoneTutor" id="telefoneTutor" required>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="senha">Senha:</label>
+      <input type="password" name="senha" id="senha" required>
+
+      <label for="confirmaSenha">Confirmar Senha:</label>
+      <input type="password" name="confirmaSenha" id="confirmaSenha" required>
+
+      <button type="submit" class="btn_login">Cadastrar</button>
+    </form>
+
+    <p class="voltar-link">Já tem uma conta? <a href="{{ url_for('login') }}">Faça login aqui</a>.</p>
+  </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <img src="{{ url_for('static', filename='img/cap.png') }}" alt="Logo CAP" height="50" />
+      </div>
+      <div class="footer-center">
+        <img src="{{ url_for('static', filename='img/logo (1).png') }}" alt="Logo Vida Pet" height="40" />
+        <div class="footer-social">
+          <img src="{{ url_for('static', filename='img/whatsasp.png') }}" alt="WhatsApp" />
+          <img src="{{ url_for('static', filename='img/Instagram.png') }}" alt="Instagram" />
+          <img src="{{ url_for('static', filename='img/facebook-rodapé.png') }}" alt="Facebook" />
+        </div>
+        <p>Copyright 2025 © Hospital Vet Popular - Todos os direitos reservados</p>
+      </div>
+      <div class="footer-right">
+        <img src="{{ url_for('static', filename='img/Cachorro-Home-Rodapé.png') }}" alt="Cachorro feliz" height="100" />
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
