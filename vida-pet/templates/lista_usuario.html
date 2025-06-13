@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Clinica Vida Pet</title>
+    <link rel="stylesheet" href="static/style.css">
+
+</head>
+<body>
+    <h1>Listagem de Usuário</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <p><a href="/adicionar_livro">Adicionar Usuário</a></p>
+
+    {% if tutores %}
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tutor in tutores %}
+                <tr>
+                    <td>{{ tutor.nome }}</td>
+                    <td>{{ tutor.telefone }}</td>
+                    <td>{{ tutor.email }}</td>
+                    <td>
+                        <a href="/editartutor/{{ tutor.codigo }}">Editar</a>
+                        <a href="/apagar_tutor/{{ tutor.codigo }}">Apagar</a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum tutor cadastrado.</p>
+    {% endif %}
+</body>
+</html>

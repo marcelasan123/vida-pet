@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Consulta - {{ pet.nome_pet }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Agendar Consulta para {{ pet.nome_pet }}</h1>
+
+    <form method="post">
+        <label for="data">Data:</label><br>
+        <input type="date" id="data" name="data" required><br><br>
+
+        <label for="motivo">Motivo:</label><br>
+        <textarea id="motivo" name="motivo" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit">Agendar</button>
+    </form>
+
+    <p><a href="{{ url_for('lista_pet') }}">Voltar para lista de pets</a></p>
+</body>
+</html>

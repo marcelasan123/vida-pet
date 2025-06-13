@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Clínica Vida Pet</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Listagem de Pets</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <p><a href="/cadastrarpet">Adicionar Pet</a></p>
+
+    {% if pets %}
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Raça</th>
+                    <th>Peso</th>
+                    <th>Gênero</th>
+                    <th>Nome Tutor</th>
+                    <th>Telefone Tutor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pet in pets %}
+                <tr>
+                    <td>{{ pet.nome_pet }}</td>
+                    <td>{{ pet.raca_pet }}</td>
+                    <td>{{ pet.peso_pet }}</td>
+                    <td>{{ pet.genero }}</td>
+                    <td>{{ pet.nome_tutor }}</td>
+                    <td>{{ pet.telefone_tutor }}</td>
+                    <td>
+                        <a href="/excluir/{{ pet.id }}">Excluir</a> |
+                        <a href="/editarpet/{{ pet.id }}">Editar</a> |
+                        <a href="/agendar/{{ pet.id }}">Agendar Consulta</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum Pet cadastrado.</p>
+    {% endif %}
+
+    <h2>Agendamentos</h2>
+    {% if agendamentos %}
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Nome do Pet</th>
+                <th>Data</th>
+                <th>Motivo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for agendamento in agendamentos %}
+            <tr>
+                <td>{{ agendamento.nome_pet }}</td>
+                <td>{{ agendamento.data }}</td>
+                <td>{{ agendamento.motivo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Não há agendamentos.</p>
+    {% endif %}
+</body>
+</html>
